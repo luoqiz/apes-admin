@@ -1,0 +1,9 @@
+dependencies {
+    // https://mvnrepository.com/artifact/cn.hutool/hutool-all
+    api 'cn.hutool:hutool-all:5.6.2'
+    // Excel 操作工具 https://mvnrepository.com/artifact/com.alibaba/easyexcel
+    api 'com.alibaba:easyexcel:2.2.8'
+    // Word 操作工具 https://mvnrepository.com/artifact/com.deepoove/poi-tl
+    api 'com.deepoove:poi-tl:1.9.1'
+    api 'com.alibaba:fastjson'
+}

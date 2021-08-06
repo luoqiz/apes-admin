@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.luoqiz.user.mapper.SysUserMapper">
+    <resultMap id="BaseResultMap" type="top.luoqiz.user.entity.SysUserEntity">
+        <id column="user_id" property="userId"/>
+        <result column="dept_id" property="deptId"/>
+        <result column="username" property="username"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="gender" property="gender"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="avatar_name" property="avatarName"/>
+        <result column="avatar_path" property="avatarPath"/>
+        <result column="password" property="password"/>
+        <result column="is_admin" property="isAdmin"/>
+        <result column="enabled" property="enabled"/>
+        <result column="expire_time" property="expireTime"/>
+        <result column="non_locked" property="nonLocked"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="pwd_reset_time" property="pwdResetTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+</mapper>

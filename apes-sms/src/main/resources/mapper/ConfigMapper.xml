@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.luoqiz.sms.mapper.ConfigMapper">
+    <resultMap id="BaseResultMap" type="top.luoqiz.sms.entity.ConfigEntity">
+            <id column="id" property="id" />
+            <result column="name" property="name" />
+            <result column="platform_type" property="platformType" />
+            <result column="secret_id" property="secretId" />
+            <result column="secret_key" property="secretKey" />
+            <result column="app_id" property="appId" />
+            <result column="sign_name" property="signName" />
+            <result column="templateCode" property="templateCode" />
+            <result column="domain" property="domain" />
+            <result column="status" property="status" />
+            <result column="create_time" property="createTime" />
+            <result column="update_time" property="updateTime" />
+    </resultMap>
+</mapper>

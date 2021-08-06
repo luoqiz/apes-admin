@@ -1,0 +1,146 @@
+def springBootVersion = "2.4.4"
+def protobufVersion = "0.8.16"
+
+buildscript {
+    ext {
+        set('springBootVersion', "2.4.4")
+        set('protobufVersion', "0.8.16")
+    }
+    repositories {
+        mavenLocal()
+        //优先使用国内的源-阿里云
+        maven {
+            url "https://maven.aliyun.com/repository/public"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/jcenter"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/spring"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/spring-plugin"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/gradle-plugin"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/google"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/grails-core"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/apache-snapshots"
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("com.google.protobuf:protobuf-gradle-plugin:${protobufVersion}")
+    }
+}
+
+
+//这点是所有工程配置
+allprojects {
+
+    // 统一移除jar
+    configurations {
+        all*.exclude module: 'spring-boot-starter-logging'
+        all*.exclude module: 'logback-classic'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenLocal()
+        //优先使用国内的源-阿里云
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
+        maven { url "https://maven.aliyun.com/repository/spring" }
+        maven { url "https://maven.aliyun.com/repository/spring-plugin" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/grails-core" }
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+}
+
+//公共配置
+subprojects {
+    // 设置group id
+    group = 'top.luoqiz'
+    //当前项目的版本
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: "java"
+    apply plugin: "eclipse"
+    apply plugin: "idea"
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: "org.springframework.boot"
+    apply plugin: "com.google.protobuf"
+    apply plugin: 'java-library'
+
+    //java版本
+    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_11
+
+    jar { enabled(true) }
+    bootJar { enabled(false) }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+        }
+        dependencies {
+            // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+            dependency 'org.springdoc:springdoc-openapi-ui:1.5.6'
+            // https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-springdoc-ui
+            dependency 'com.github.xiaoymin:knife4j-springdoc-ui:3.0.2'
+            // https://mvnrepository.com/artifact/org.freemarker/freemarker
+            dependency group: 'org.freemarker', name: 'freemarker', version: '2.3.31'
+            // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-annotation
+            dependency group: 'com.baomidou', name: 'mybatis-plus-annotation', version: '3.4.2'
+            // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-extension
+            dependency group: 'com.baomidou', name: 'mybatis-plus-extension', version: '3.4.2'
+            // https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/caffeine
+            dependency group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '3.0.1'
+            // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+            dependency group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.4'
+            // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter
+            dependency group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.4.2'
+            // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator
+            dependency group: 'com.baomidou', name: 'mybatis-plus-generator', version: '3.4.1'
+            // https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter
+            dependency group: 'com.alibaba', name: 'druid-spring-boot-starter', version: '1.2.5'
+            // https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss
+            dependency group: 'com.aliyun.oss', name: 'aliyun-sdk-oss', version: '3.11.3'
+            // https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java
+            dependency group: 'com.tencentcloudapi', name: 'tencentcloud-sdk-java', version: '4.0.11'
+            // https://mvnrepository.com/artifact/com.alibaba/fastjson
+            dependency group: 'com.alibaba', name: 'fastjson', version: '1.2.76'
+
+        }
+    }
+
+    //这里是所有模块的依赖，建议只导入一些所有模块必用依赖
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-configuration-processor'
+//        compile 'org.projectlombok:lombok'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+}
+
+

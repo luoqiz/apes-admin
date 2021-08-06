@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package top.luoqiz.im;
+
+option java_package = "top.luoqiz.im.common.protocol";
+option java_outer_classname = "IMRequestProto";
+option java_multiple_files = true;
+
+service StudentService{
+  rpc GetRealNameByUsername(IMReqProtocol) returns (IMResProtocol){}
+}
+
+message IMReqProtocol {
+  int64 requestId = 2;
+  string reqMsg = 1;
+  int32 type = 3;
+
+}
+
+message IMResProtocol {
+  int64 responseId = 2;
+  string resMsg = 1;
+  int32 type = 3;
+}

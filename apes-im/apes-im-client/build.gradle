@@ -1,0 +1,20 @@
+def  dubboVersion = '2.7.12'
+dependencies {
+    implementation(
+            project(":apes-im:apes-im-common"),
+    )
+
+    // https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter
+    implementation group: 'org.apache.dubbo', name: 'dubbo-spring-boot-starter', version: dubboVersion
+    // https://mvnrepository.com/artifact/org.apache.dubbo/dubbo
+    implementation group: 'org.apache.dubbo', name: 'dubbo', version: dubboVersion
+// https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-dependencies-zookeeper
+    implementation group: 'org.apache.dubbo', name: 'dubbo-dependencies-zookeeper', version: dubboVersion, ext: 'pom'
+// https://mvnrepository.com/artifact/org.apache.curator/curator-framework
+    implementation group: 'org.apache.curator', name: 'curator-framework', version: '5.1.0'
+// https://mvnrepository.com/artifact/org.apache.curator/curator-recipes
+    implementation group: 'org.apache.curator', name: 'curator-recipes', version: '5.1.0'
+
+}
+
+bootJar.enabled(true)

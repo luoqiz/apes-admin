@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package top.luoqiz.im;
+
+option java_package = "top.luoqiz.im.common.protocol";
+option java_outer_classname = "IMResponseProto";
+
+message IMResProtocol {
+  int64 responseId = 2;
+  string resMsg = 1;
+  int32 type = 3;
+}

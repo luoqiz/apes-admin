@@ -1,0 +1,30 @@
+
+
+dependencies {
+
+    implementation project(":apes-common-web")
+    implementation 'org.freemarker:freemarker'
+
+    implementation 'mysql:mysql-connector-java'
+    implementation 'com.microsoft.sqlserver:mssql-jdbc'
+    implementation 'com.oracle.database.jdbc:ojdbc10'
+    implementation 'com.baomidou:mybatis-plus-annotation'
+    implementation 'com.baomidou:mybatis-plus-extension'
+
+//    Java包时要带入平台，如win，linux，mac
+    // https://mvnrepository.com/artifact/org.openjfx/javafx-base
+    implementation 'org.openjfx:javafx-base:11.0.2:win'
+    // https://mvnrepository.com/artifact/org.openjfx/javafx-controls
+    implementation 'org.openjfx:javafx-controls:11.0.2:win'
+    // https://mvnrepository.com/artifact/org.openjfx/javafx-graphics
+    implementation 'org.openjfx:javafx-graphics:11.0.2:win'
+//    // https://mvnrepository.com/artifact/org.openjfx/javafx-fxml
+    implementation 'org.openjfx:javafx-fxml:11.0.2:win'
+//    // https://mvnrepository.com/artifact/org.openjfx/javafx-web
+    implementation 'org.openjfx:javafx-web:11.0.2:win'
+// https://mvnrepository.com/artifact/org.openjfx/javafx-swing
+    implementation 'org.openjfx:javafx-swing:11.0.2:win'
+// https://mvnrepository.com/artifact/org.openjfx/javafx-media
+    implementation 'org.openjfx:javafx-media:11.0.2:win'
+
+}

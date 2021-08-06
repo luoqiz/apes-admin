@@ -1,0 +1,15 @@
+dependencies {
+
+    implementation(
+            project(":apes-common-web"),
+            'com.github.ben-manes.caffeine:caffeine',
+            'org.mybatis.spring.boot:mybatis-spring-boot-starter',
+            'com.baomidou:mybatis-plus-boot-starter',
+            'com.baomidou:mybatis-plus-generator',
+            // https://mvnrepository.com/artifact/org.freemarker/freemarker
+            'org.freemarker:freemarker:2.3.31',
+            'com.alibaba:druid-spring-boot-starter',
+            'mysql:mysql-connector-java',
+    )
+
+}

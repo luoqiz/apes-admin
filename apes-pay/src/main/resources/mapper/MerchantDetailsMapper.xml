@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.luoqiz.pay.mapper.MerchantDetailsMapper">
+    <resultMap id="BaseResultMap" type="top.luoqiz.pay.entity.MerchantDetailsEntity">
+            <id column="details_id" property="detailsId" />
+            <result column="pay_type" property="payType" />
+            <result column="appid" property="appid" />
+            <result column="mch_id" property="mchId" />
+            <result column="cert_store_type" property="certStoreType" />
+            <result column="key_private" property="keyPrivate" />
+            <result column="key_public" property="keyPublic" />
+            <result column="key_cert" property="keyCert" />
+            <result column="key_cert_pwd" property="keyCertPwd" />
+            <result column="notify_url" property="notifyUrl" />
+            <result column="return_url" property="returnUrl" />
+            <result column="sign_type" property="signType" />
+            <result column="seller" property="seller" />
+            <result column="sub_app_id" property="subAppId" />
+            <result column="sub_mch_id" property="subMchId" />
+            <result column="input_charset" property="inputCharset" />
+            <result column="is_test" property="isTest" />
+    </resultMap>
+</mapper>

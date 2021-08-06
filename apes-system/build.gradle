@@ -1,0 +1,25 @@
+bootJar.enabled(true)
+dependencies {
+
+    implementation(
+            project(":apes-common-web"),
+            project(":apes-storage"),
+            project(":apes-sms"),
+            project(":apes-pay"),
+            project(":apes-user"),
+//            'org.springframework.boot:spring-boot-starter-data-redis',
+            'org.springframework.boot:spring-boot-starter-security',
+            // https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/caffeine
+            'com.github.ben-manes.caffeine:caffeine:3.0.0',
+            'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4',
+            // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter
+            'com.baomidou:mybatis-plus-boot-starter:3.4.2',
+            'com.baomidou:mybatis-plus-generator:3.4.1',
+            // https://mvnrepository.com/artifact/org.freemarker/freemarker
+            'org.freemarker:freemarker:2.3.31',
+            'com.alibaba:druid-spring-boot-starter:1.2.5',
+            'mysql:mysql-connector-java',
+    )
+
+}
+

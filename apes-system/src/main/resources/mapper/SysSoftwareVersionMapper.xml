@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.luoqiz.system.modules.system.mapper.SysSoftwareVersionMapper">
+    <resultMap id="BaseResultMap" type="top.luoqiz.system.modules.system.entity.SysSoftwareVersionEntity">
+        <id column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="version_name" property="versionName" />
+        <result column="version" property="version" />
+        <result column="build" property="build" />
+        <result column="mark" property="mark" />
+        <result column="force_update" property="forceUpdate" />
+        <result column="downlaod_url" property="downlaodUrl" />
+        <result column="download_num" property="downloadNum" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <sql id="columns">
+                main.id
+                , main.type
+                , main.version_name
+                , main.version
+                , main.build
+                , main.mark
+                , main.force_update
+                , main.downlaod_url
+                , main.download_num
+                , main.create_time
+                , main.update_time
+    </sql>
+
+    <select id="selectListPage" resultMap="BaseResultMap">
+        select
+        <include refid="columns"/>
+        from sys_software_version main
+        join (select id from sys_software_version temp ${ew.customSqlSegment} limit ${offset},${size}) tmp
+        on main.id = tmp.id
+    </select>
+</mapper>

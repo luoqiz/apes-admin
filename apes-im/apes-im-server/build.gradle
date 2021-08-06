@@ -1,0 +1,54 @@
+bootJar.enabled(true)
+
+def dubboVersion = '2.7.12'
+def grpcVersion = '1.38.0'
+def protocVersion = '3.17.2'
+
+dependencies {
+    implementation(
+            project(":apes-im:apes-im-common"),
+    )
+    // https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter
+    implementation group: 'org.apache.dubbo', name: 'dubbo-spring-boot-starter', version: dubboVersion
+    // https://mvnrepository.com/artifact/org.apache.dubbo/dubbo
+    implementation group: 'org.apache.dubbo', name: 'dubbo', version: dubboVersion
+// https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-dependencies-zookeeper
+    implementation group: 'org.apache.dubbo', name: 'dubbo-dependencies-zookeeper', version: dubboVersion, ext: 'pom'
+// https://mvnrepository.com/artifact/org.apache.curator/curator-framework
+    implementation group: 'org.apache.curator', name: 'curator-framework', version: '5.1.0'
+// https://mvnrepository.com/artifact/org.apache.curator/curator-recipes
+    implementation group: 'org.apache.curator', name: 'curator-recipes', version: '5.1.0'
+
+}
+
+// 修改 proto 文件默认存放位置
+// proto 文件默认路径是 src/main/proto
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/java', 'src/generated/main/java'
+        }
+        proto {
+            srcDir 'src/main/proto' //指定.proto文件路径
+        }
+    }
+}
+
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protocVersion}"
+    }
+    // 默认生成目录 $buildDir/generated/source/proto 通过 generatedFilesBaseDir 改变生成位置
+    generatedFilesBaseDir = "$projectDir/src/main/java"
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}

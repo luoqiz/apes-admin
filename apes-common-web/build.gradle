@@ -1,0 +1,21 @@
+configurations {
+    compile.exclude module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+    api project(":apes-common")
+    api(
+            'org.springframework.boot:spring-boot-starter-web',
+            'org.springframework.boot:spring-boot-starter-undertow',
+            'org.springframework.boot:spring-boot-starter-data-redis',
+            'org.springframework.boot:spring-boot-starter-actuator',
+            'org.springdoc:springdoc-openapi-ui',
+            'com.github.xiaoymin:knife4j-springdoc-ui',
+            'com.aliyun.oss:aliyun-sdk-oss',
+            'org.hibernate.validator:hibernate-validator',
+            // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
+            'org.springframework.boot:spring-boot-starter-aop'
+    )
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

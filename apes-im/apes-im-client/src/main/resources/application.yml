@@ -1,0 +1,13 @@
+server:
+  port: 9900
+  shutdown: graceful
+
+spring:
+  application:
+    name: apes-im-client
+
+logging:
+  level:
+    root: info
+    org.springframework.web: trace
+    top.luoqiz: debug
